@@ -27,7 +27,7 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <button id="case-decrease" class="btn btn-default"><i class="fas fa-minus"></i></button>
                            <input id="count-value" type="number" min="0" class="form-control text-center" value="1">
                            <button id="case-increase" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
@@ -88,6 +88,17 @@
          var countValueAll = countValueInt + 1;
          countValue.value = countValueAll;
 
+
+         var caseBalance = countValueAll * 1219;
+         document.getElementById("case-balance").innerText = caseBalance;
+      })
+
+      var caseDecrease = document.getElementById("case-decrease");
+      caseDecrease.addEventListener("click", function(){
+         var countValue = document.getElementById("count-value");
+         var countValueInt = parseInt(countValue.value);
+         var countValueAll = countValueInt - 1;
+         countValue.value = countValueAll;
 
          var caseBalance = countValueAll * 1219;
          document.getElementById("case-balance").innerText = caseBalance;
