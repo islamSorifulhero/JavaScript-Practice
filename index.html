@@ -81,28 +81,52 @@
    </section>
    
    <script>
-      var caseIncrease = document.getElementById("case-increase");
-      caseIncrease.addEventListener("click", function(){
-         var countValue = document.getElementById("count-value");
-         var countValueInt = parseInt(countValue.value);
-         var countValueAll = countValueInt + 1;
-         countValue.value = countValueAll;
 
-
-         var caseBalance = countValueAll * 1219;
-         document.getElementById("case-balance").innerText = caseBalance;
+       document.getElementById("case-increase").addEventListener("click", function(){
+      handleProductChange(true);
       })
 
-      var caseDecrease = document.getElementById("case-decrease");
-      caseDecrease.addEventListener("click", function(){
-         var countValue = document.getElementById("count-value");
-         var countValueInt = parseInt(countValue.value);
-         var countValueAll = countValueInt - 1;
-         countValue.value = countValueAll;
-
-         var caseBalance = countValueAll * 1219;
-         document.getElementById("case-balance").innerText = caseBalance;
+       document.getElementById("case-decrease").addEventListener("click", function(){
+      handleProductChange(false);
       })
+      function handleProductChange(isIncrease) {
+         const countValue = document.getElementById("count-value");
+         const countValueInt = parseInt(countValue.value);
+         let countNewValue = countValueInt;
+         if (isIncrease == true){
+            countNewValue = countValueInt + 1;
+         }
+         if (isIncrease == false && countValueInt > 0){
+            countNewValue = countValueInt - 1;
+         }
+         countValue.value = countNewValue;
+         const caseTotal = countNewValue * 1219;
+         document.getElementById("case-balance").innerText = caseTotal;
+      }
+
+
+      // var caseIncrease = document.getElementById("case-increase");
+      // caseIncrease.addEventListener("click", function(){
+      //    var countValue = document.getElementById("count-value");
+      //    var countValueInt = parseInt(countValue.value);
+      //    var countValueAll = countValueInt + 1;
+      //    countValue.value = countValueAll;
+
+
+      //    var caseBalance = countValueAll * 1219;
+      //    document.getElementById("case-balance").innerText = caseBalance;
+      // })
+
+      // var caseDecrease = document.getElementById("case-decrease");
+      // caseDecrease.addEventListener("click", function(){
+      //    var countValue = document.getElementById("count-value");
+      //    var countValueInt = parseInt(countValue.value);
+      //    var countValueAll = countValueInt - 1;
+      //    countValue.value = countValueAll;
+
+      //    var caseBalance = countValueAll * 1219;
+      //    document.getElementById("case-balance").innerText = caseBalance;
+      // })
    </script>
 </body>
 </html>
