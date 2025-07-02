@@ -45,12 +45,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="number" min="0" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="phone-decrease" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="phone-count" type="number" min="0" class="form-control text-center" value="1">
+                           <button id="phone-increase" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$ <span id="phone-balance">59</span></h5>
                         <img src="remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -159,7 +159,28 @@
 
 
 
+      var phoneIncrease = document.getElementById("phone-increase");
+      phoneIncrease.addEventListener("click", function(){
+         var phoneCount = document.getElementById("phone-count").value;
+         var phoneCountInt = parseInt(phoneCount);
+         var phoneCountAll = phoneCountInt + 1;
+         document.getElementById("phone-count").value = phoneCountAll;
 
+         var phoneBalance = phoneCountAll * 59;
+         document.getElementById("phone-balance").innerText = phoneBalance;
+      })
+
+
+      var phoneDecrease = document.getElementById("phone-decrease");
+      phoneDecrease.addEventListener("click", function(){
+         var phoneCount = document.getElementById("phone-count").value;
+         var phoneCountInt = parseInt(phoneCount);
+         var phoneCountAll = phoneCountInt - 1;
+         document.getElementById("phone-count").value = phoneCountAll;
+
+         var phoneBalance = phoneCountAll * 59;
+         document.getElementById("phone-balance").innerText = phoneBalance;
+      })
    </script>
 </body>
 </html>
